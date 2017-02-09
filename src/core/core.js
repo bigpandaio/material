@@ -5,10 +5,7 @@
 angular
   .module('material.core', [
     'ngAnimate',
-    'material.core.animate',
-    'material.core.layout',
-    'material.core.gestures',
-    'material.core.theming'
+    'material.core.animate'
   ])
   .config(MdCoreConfigure)
   .run(DetectNgTouch);
@@ -32,15 +29,10 @@ function DetectNgTouch($log, $injector) {
 /**
  * @ngInject
  */
-function MdCoreConfigure($provide, $mdThemingProvider) {
+function MdCoreConfigure($provide) {
 
   $provide.decorator('$$rAF', ["$delegate", rAFDecorator]);
 
-  $mdThemingProvider.theme('default')
-    .primaryPalette('indigo')
-    .accentPalette('pink')
-    .warnPalette('deep-orange')
-    .backgroundPalette('grey');
 }
 
 /**
